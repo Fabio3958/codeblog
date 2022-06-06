@@ -16,7 +16,7 @@ public class CodeBlogController {
     @Autowired
     CodeBlogService codeBlogService;
 
-    @GetMapping("/")
+    @GetMapping("/posts")
     public ModelAndView getPosts(){
         ModelAndView modelAndView = new ModelAndView("posts");
         List<Post> posts = codeBlogService.findAll();
