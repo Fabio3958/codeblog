@@ -30,7 +30,7 @@ public class CodeBlogController {
     public ModelAndView getPostDetails(@PathVariable("id") long id){
         ModelAndView modelAndView = new ModelAndView("postDetails");
         Optional<Post> post = codeBlogService.findById(id);
-        modelAndView.addObject("post", post);
+        codeBlogService.findById(id).ifPresent(o -> modelAndView.addObject("post", o));
         return modelAndView;
     }
 
