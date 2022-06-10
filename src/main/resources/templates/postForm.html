@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
     <title>MyCodeBlog</title>
 </head>
 
@@ -31,6 +36,7 @@
 
         <div>
 
+            <th:block th:include="mensagemValidacao"></th:block>
             <form method="post">
 
                 <div class="formGroup">
@@ -40,7 +46,7 @@
                     <input type="text" class="form-control" style="margin-top: 10px;" name="author" placeholder="Autor *">
                 </div>
 
-                <textarea type="text" class="form-control" style="margin-top: 10px;" name="text" placeholder="Texto *"></textarea>
+                <textarea id="summernote" type="text" class="form-control" style="margin-top: 10px;" name="text" placeholder="Texto *"></textarea>
 
                 <small class="form-text text-muted">(*) Campos obrigatórios</small>
 
@@ -55,4 +61,11 @@
 </section>
 
 </body>
+<script>
+    $('#summernote').summernote({
+        placeholder: 'Texto *',
+        tabsize: 2,
+        height: 300
+    });
+</script>
 </html>
