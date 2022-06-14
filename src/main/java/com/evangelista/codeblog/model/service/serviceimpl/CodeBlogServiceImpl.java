@@ -4,8 +4,8 @@ import com.evangelista.codeblog.model.Post;
 import com.evangelista.codeblog.model.service.CodeBlogService;
 import com.evangelista.codeblog.repository.CodeBlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,7 +18,7 @@ public class CodeBlogServiceImpl implements CodeBlogService {
 
     @Override
     public List<Post> findAll() {
-        return codeBlogRepository.findAll();
+        return codeBlogRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     @Override
