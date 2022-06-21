@@ -5,6 +5,7 @@ import com.evangelista.codeblog.model.service.CodeBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -54,6 +55,12 @@ public class CodeBlogController {
         }
         post.setDate(LocalDate.now());
         codeBlogService.save(post);
+        return "redirect:/posts";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Long id){
+        codeBlogService.deletePost(id);
         return "redirect:/posts";
     }
 
